@@ -81,6 +81,8 @@ pipeline {
             container('go') {
               sh 'jx step changelog --version v\$(cat ../../VERSION)'
 
+              sh 'helm version'
+
               // release the helm chart
               sh 'jx step helm release'
 
